@@ -348,10 +348,6 @@ Bullet::Bullet(int startX, int startY, int dirX, int dirY)
     shape.setOrigin(shape.getSize().x / 2.f, shape.getSize().y / 2.f);
     shape.setPosition(position.x * CELL_SIZE + CELL_SIZE / 2.f, position.y * CELL_SIZE + CELL_SIZE / 2.f);
 }
-
-// NOTE: This update currently does NOT call any Game methods, so its position
-// relative to Game definition isn't strictly critical for *this* version.
-// However, placing it after Game definition is safer if it might need Game in the future.
 void Bullet::update(float dt, const Level& level, vector<Entity*>& others, Game& game) {
     if (!active) return;
     moveTimer += dt;
